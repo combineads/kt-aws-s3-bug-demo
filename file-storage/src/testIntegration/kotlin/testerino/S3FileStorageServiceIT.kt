@@ -32,7 +32,7 @@ class S3FileStorageServiceIT : DescribeSpec({
                     )
                 }
             }
-            val service = S3FileStorageService()
+            val service = S3FileStorageService(client)
 
             // act
             service.uploadFile(fileKey, fileContent)
