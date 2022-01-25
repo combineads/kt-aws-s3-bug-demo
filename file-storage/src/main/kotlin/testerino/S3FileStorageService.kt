@@ -4,11 +4,10 @@ import aws.sdk.kotlin.services.s3.S3Client
 import aws.sdk.kotlin.services.s3.model.GetObjectRequest
 import aws.smithy.kotlin.runtime.content.ByteStream
 import aws.smithy.kotlin.runtime.content.decodeToString
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Service
 
-@Service
-class S3FileStorageService @Autowired constructor(val client: S3Client) : IFileStorageService {
+class S3FileStorageService(private val client: S3Client = S3Client {
+    region = "us-east-1"
+}) : IFileStorageService {
 
     // todo encryption?
     override suspend fun uploadFile(key: String, content: String): Boolean {
