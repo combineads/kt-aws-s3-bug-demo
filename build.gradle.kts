@@ -67,7 +67,7 @@ subprojects {
         withJavadocJar()
 
         toolchain {
-            version = "17"
+            languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_17.majorVersion))
             vendor.set(JvmVendorSpec.ADOPTOPENJDK)
         }
     }
