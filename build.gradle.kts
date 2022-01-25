@@ -5,13 +5,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.6.10" apply false
     kotlin("plugin.spring") version "1.6.10" apply false
-    kotlin("plugin.serialization") version "1.6.10" apply false
-    id("org.springframework.boot") version "2.6.1" apply false
     id("io.spring.dependency-management") version "1.0.11.RELEASE" apply false
-    id("com.github.johnrengelman.processes") version "0.5.0" apply false
     id("com.adarshr.test-logger") version "3.1.0" apply false
-    id("com.github.kt3k.coveralls") version "2.12.0"
-    jacoco
     java
 }
 
@@ -27,9 +22,7 @@ allprojects {
 // CONFIGURATION THAT APPLIES ONLY TO SUBPROJECTS
 subprojects {
     apply(plugin = "org.jetbrains.kotlin.jvm")
-    apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
     apply(plugin = "com.adarshr.test-logger")
-    apply(plugin = "java-test-fixtures")
 
     tasks.withType<Test> {
         useJUnitPlatform()
@@ -72,5 +65,10 @@ subprojects {
     configure<JavaPluginExtension> {
         withSourcesJar()
         withJavadocJar()
+
+        toolchain {
+            version = "17"
+            vendor.set(JvmVendorSpec.ADOPTOPENJDK)
+        }
     }
 }

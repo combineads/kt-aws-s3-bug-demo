@@ -1,3 +1,5 @@
+package testerino
+
 import aws.sdk.kotlin.runtime.endpoint.AwsEndpoint
 import aws.sdk.kotlin.runtime.endpoint.AwsEndpointResolver
 import aws.sdk.kotlin.services.s3.S3Client

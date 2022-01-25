@@ -1,3 +1,5 @@
+package testerino
+
 import aws.sdk.kotlin.services.s3.S3Client
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
