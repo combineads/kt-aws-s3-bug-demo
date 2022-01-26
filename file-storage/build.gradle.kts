@@ -17,6 +17,8 @@ dependencies {
 
     // AWS
     implementation("aws.sdk.kotlin:s3:0.11.0-beta")
+    implementation("aws.smithy.kotlin:http-client-engine-ktor:0.7.6")
+    implementation("com.squareup.okhttp3:okhttp:4.9.2")
 
     // Spring (Versions managed by dependency-management plugin)
     implementation("org.springframework.boot:spring-boot-autoconfigure")
@@ -69,6 +71,8 @@ testing {
                 // AWS
                 implementation("com.amazonaws:aws-java-sdk-core:1.12.145") // Used ONLY for localstack credential provider
                 implementation("aws.sdk.kotlin:s3:0.11.0-beta")
+                implementation("aws.smithy.kotlin:http-client-engine-ktor:0.7.6")
+                implementation("com.squareup.okhttp3:okhttp:4.9.2")
 
                 // Mockk
                 implementation("io.mockk:mockk:1.12.1")

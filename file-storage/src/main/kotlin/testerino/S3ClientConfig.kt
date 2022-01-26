@@ -1,6 +1,7 @@
 package testerino
 
 import aws.sdk.kotlin.services.s3.S3Client
+import aws.smithy.kotlin.runtime.http.engine.ktor.KtorEngine
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
@@ -14,5 +15,6 @@ class S3ClientConfig {
     @Bean
     fun s3Client(): S3Client = S3Client {
         region = this@S3ClientConfig.region
+        httpClientEngine = KtorEngine()
     }
 }
